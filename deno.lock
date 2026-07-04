@@ -1,0 +1,26 @@
+{
+  "version": "5",
+  "specifiers": {
+    "jsr:@bounded-systems/verbspec@~0.3.1": "0.3.1",
+    "npm:zod@^4.4.3": "4.4.3"
+  },
+  "jsr": {
+    "@bounded-systems/verbspec@0.3.1": {
+      "integrity": "993d7b588363ed8817f7a7ea6c8d2ddb17138f61f87659041705759b4a1ae063",
+      "dependencies": [
+        "npm:zod"
+      ]
+    }
+  },
+  "npm": {
+    "zod@4.4.3": {
+      "integrity": "sha512-ytENFjIJFl2UwYglde2jchW2Hwm4GJFLDiSXWdTrJQBIN9Fcyp7n4DhxJEiWNAJMV1/BqWfW/kkg71UDcHJyTQ=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "jsr:@bounded-systems/verbspec@~0.3.1",
+      "npm:zod@^4.4.3"
+    ]
+  }
+}
