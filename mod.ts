@@ -67,9 +67,10 @@ const push: VerbSpec<typeof PushInput, typeof PushOutput> = defineVerb({
 });
 
 // ── import-and-push ────────────────────────────────────────────────────────────
-// NOTE the canonical param name is `manifestDigest` (what keeperd actually
-// reads). A client sending `ledgerRef` is drift — check/keeper-wire.ts flags it.
-
+// The wire input is exactly what the in-box client sends. `manifestDigest` is
+// NOT a wire param: keeperd computes it itself as sha256(CLAUDE_BOX_CAPABILITIES)
+// from the box's environment. `ledgerRef` is the opt-in attestation output ref
+// (keeperd emits a signed push/v1 derivation there) — a real, documented param.
 const ImportAndPushInput = z.object({
   repo: z.string(),
   bundleBase64: z.string(),
@@ -77,7 +78,7 @@ const ImportAndPushInput = z.object({
   branch: z.string(),
   remote: z.string(),
   pushArgs: z.array(z.string()).optional(),
-  manifestDigest: z.string().optional(),
+  ledgerRef: z.string().optional(),
   notesRef: z.string().optional(),
   l2LaunchDigest: z.string().optional(),
 });

@@ -34,7 +34,7 @@
       "branch",
       "remote",
       "pushArgs",
-      "manifestDigest",
+      "ledgerRef",
       "notesRef",
       "l2LaunchDigest"
     ],
