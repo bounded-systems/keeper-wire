@@ -5,7 +5,8 @@
   "exports": "./mod.ts",
   "imports": {
     "zod": "npm:zod@^4.4.3",
-    "verbspec": "jsr:@bounded-systems/verbspec@^0.3.1"
+    "verbspec": "jsr:@bounded-systems/verbspec@^0.3.1",
+    "@bounded-systems/trellis-kit": "jsr:@bounded-systems/trellis-kit@^0.3.0"
   },
   "tasks": {
     "check": "deno check mod.ts gen.ts",
@@ -13,7 +14,23 @@
     "fmt": "deno fmt",
     "lint": "deno lint"
   },
-  "fmt": { "include": ["*.ts"] },
-  "lint": { "include": ["*.ts"] },
-  "publish": { "include": ["mod.ts", "manifest.json", "gen.ts", "LICENSE", "README.md"] }
+  "fmt": {
+    "include": [
+      "*.ts"
+    ]
+  },
+  "lint": {
+    "include": [
+      "*.ts"
+    ]
+  },
+  "publish": {
+    "include": [
+      "mod.ts",
+      "manifest.json",
+      "gen.ts",
+      "LICENSE",
+      "README.md"
+    ]
+  }
 }

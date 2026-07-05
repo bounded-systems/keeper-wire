@@ -1,10 +1,17 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@bounded-systems/trellis-kit@0.3": "0.3.0",
     "jsr:@bounded-systems/verbspec@~0.3.1": "0.3.1",
     "npm:zod@^4.4.3": "4.4.3"
   },
   "jsr": {
+    "@bounded-systems/trellis-kit@0.3.0": {
+      "integrity": "a1fd11e6d34f9897b874857967beb9b4323af7328d6b23119fa927cfa45922c6",
+      "dependencies": [
+        "npm:zod"
+      ]
+    },
     "@bounded-systems/verbspec@0.3.1": {
       "integrity": "993d7b588363ed8817f7a7ea6c8d2ddb17138f61f87659041705759b4a1ae063",
       "dependencies": [
@@ -19,6 +26,7 @@
   },
   "workspace": {
     "dependencies": [
+      "jsr:@bounded-systems/trellis-kit@0.3",
       "jsr:@bounded-systems/verbspec@~0.3.1",
       "npm:zod@^4.4.3"
     ]
