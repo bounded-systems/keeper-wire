@@ -4,6 +4,7 @@
     "commit",
     "push",
     "import-and-push",
+    "pr",
     "attest-launch",
     "sign",
     "verify",
@@ -37,6 +38,13 @@
       "ledgerRef",
       "notesRef",
       "l2LaunchDigest"
+    ],
+    "pr": [
+      "repo",
+      "head",
+      "base",
+      "title",
+      "body"
     ],
     "attest-launch": [
       "subject",

@@ -114,6 +114,34 @@ const importAndPush: VerbSpec<
   run: () => ({ status: "ok" as const, commitSha: "", pushedRef: "" }),
 });
 
+// ── pr ───────────────────────────────────────────────────────────────────────
+// The next rung after `push`/`import-and-push`: open the PR. keeperd leases a
+// scoped, short-lived GitHub App installation token from prx's forge-d
+// (host-to-host), calls POST /repos/{owner}/{repo}/pulls, then discards it. The
+// box never holds a token — no credential field appears anywhere in this schema,
+// which is the structural point.
+
+const PrInput = z.object({
+  repo: z.string(),
+  head: z.string(),
+  base: z.string().default("main"),
+  title: z.string(),
+  body: z.string().optional(),
+});
+const PrOutput = z.object({
+  number: z.number(),
+  url: z.string(),
+});
+const pr: VerbSpec<typeof PrInput, typeof PrOutput> = defineVerb({
+  id: "pr",
+  summary:
+    "Open a GitHub PR via keeperd (leases a scoped token from forge-d; the box never holds one).",
+  actor: "keeper",
+  input: PrInput,
+  output: PrOutput,
+  run: () => ({ number: 0, url: "" }),
+});
+
 // ── attest-launch ──────────────────────────────────────────────────────────────
 
 const AttestLaunchInput = z.object({
@@ -229,6 +257,7 @@ export const KEEPER_WIRE: Record<string, VerbSpec> = {
   "commit": commit,
   "push": push,
   "import-and-push": importAndPush,
+  "pr": pr,
   "attest-launch": attestLaunch,
   "sign": sign,
   "verify": verify,
