@@ -35,4 +35,4 @@ single move its `check/lattice.ts` prescribes.
 
 ## License
 
-Source-available under **PolyForm Noncommercial 1.0.0**.
+Open source under the [MIT License](LICENSE).
